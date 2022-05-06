@@ -1,0 +1,82 @@
+#!/usr/bin/env python3
+import os
+import numpy as np
+import pandas as pd
+from omop_embed import clinical, etl, plp, conf
+
+def generate_features (workdir, db, task, end_day):
+
+    # workdir structure
+    #   data/tasks/{task}/cohort_{cohort}/{tables, partition}
+    #   ---------------------------------
+    #       workdir                      /cohort_{cohort}/{tables, partition}
+
+    loader = etl.Loader(db)
+    cohort_schema = loader.db.conf['COHORT_SCHEMA']
+
+    settings_path = os.path.join('plp', task, 'settings.csv')
+    settings = pd.read_csv(settings_path)
+    settings['AUC'] = None
+
+    for cohort in settings.cohortId.unique():
+        cohort_dir = os.path.join(workdir, 'cohort_%d' % cohort)
+        partition_path = os.path.join(cohort_dir, 'partition')
+        os.makedirs(cohort_dir, exist_ok=True)
+        print("Loading to ", cohort_dir)
+        for table in clinical.DOMAIN.keys():
+            loader.load_cohort(table, end_day, cohort_schema, f"cohort_{task}", f"cohort_{task}_extract", cohort, os.path.join(cohort_dir, table))
+        etl.merge_partition(cohort_dir, partition_path)
+
+    return
+
+    def get (a, b):
+        if a is None:
+            return None
+        v = a.get(b, None)
+        return v
+
+    for K, row in settings.iterrows():
+        key = row['analysisId']
+        perf_path = os.path.join('plp', task, 'Analysis_%d' % key)
+        metrics = plp.read_analysis_metrics(perf_path)
+        #settings.at[K, 'AUPRC'] = get(metrics, 'AUPRC')
+        settings.at[K, 'AUC'] = get(metrics, 'AUC.auc')
+
+    #settings['AUPRC'] = settings['AUPRC'].astype(np.float32)
+    settings['AUC'] = settings['AUC'].astype(np.float32)
+    os.makedirs('results/plp', exist_ok=True)
+    settings.to_csv(f'results/plp/{task}.csv')
+
+if __name__ == '__main__':
+    import argparse
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--db", type=str, default='default', required=False, help="database")
+    parser.add_argument("-t", "--task", type=str, default=None, required=True, help="task")
+    parser.add_argument("-E", "--end_day", type=int, default=0, help="")
+    parser.add_argument("-u", "--update_extract_table", dest='update_extract_table', action='store_true', help='')
+
+    args = parser.parse_args()
+
+    workdir = os.path.join(conf.DATA_DIR, 'tasks', args.task)
+    os.makedirs(workdir, exist_ok=True)
+
+    plp.create_extract_table(args.db, args.task, args.update_extract_table)
+
+    generate_features(workdir, args.db, args.task, args.end_day)
+
+
+'''
+Copyright © 2022 Merck & Co., Inc., Rahway, NJ, USA and its affiliates. All rights reserved.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+'''

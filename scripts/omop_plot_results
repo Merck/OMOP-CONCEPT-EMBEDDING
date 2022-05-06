@@ -1,0 +1,66 @@
+#!/usr/bin/env python3
+import os
+import sys
+from collections import defaultdict
+import pandas as pd
+import matplotlib
+from matplotlib.backends.backend_agg import FigureCanvasAgg as FigureCanvas
+from matplotlib.figure import Figure
+
+COLORS = ['#0051a2', '#97964a', '#ffd44f', '#f4777f', '#93003a']
+
+
+
+if __name__ == '__main__':
+    import argparse
+    parser = argparse.ArgumentParser()
+    parser.add_argument("-o", "--output", type=str, default=None, required=True, help="output prefix")
+    parser.add_argument('tags', nargs='+', help='tags')
+    args = parser.parse_args()
+
+    df = pd.read_table('settings.txt', sep='\t', header=None, names=['task', 'labels', 'data'])
+
+    for tag in args.tags:
+        values = []
+        for _, row in df.iterrows():
+            task = row.task
+            try:
+                dfx = pd.read_csv(f'results/{tag}/{task}.csv')
+                dfx.set_index('metric', inplace=True)
+                auc = dfx.value['auc']
+            except:
+                auc = None
+            values.append(auc)
+        df[tag] = values
+
+    df.set_index('task', inplace=True, verify_integrity=True)
+    df.drop(columns=['labels', 'data'], inplace=True)
+
+    fig = Figure(figsize=[9.6,4.8])
+    FigureCanvas(fig)
+    ax = fig.add_subplot(111)
+    ax.set_ylim(0.5, 0.9)
+
+    df.plot.bar(ax=ax)
+
+    ax.set_ylabel('AUC')
+    ax.legend(loc="upper right")
+    df.to_csv(f'{args.output}.csv')
+    fig.savefig(f'{args.output}.png', bbox_inches='tight', dpi=200)
+    fig.savefig(f'{args.output}.eps', bbox_inches='tight', format='eps')
+
+'''
+Copyright © 2022 Merck & Co., Inc., Rahway, NJ, USA and its affiliates. All rights reserved.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+'''

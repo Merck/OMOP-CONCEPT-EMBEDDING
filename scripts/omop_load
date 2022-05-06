@@ -1,0 +1,36 @@
+#!/usr/bin/env python3
+import subprocess as sp
+from omop_embed.etl import Loader
+
+if __name__ == '__main__':
+    sp.check_call('zcat --version', shell=True)
+    sp.check_call('gzip --version', shell=True)
+    import argparse
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--db", help="database", type=str, default='default')
+    parser.add_argument("-l", "--limit", help="limit lines from each table", type=int, default=None)
+    parser.add_argument("-p", "--parallel", help="load with multiple processes", type=int, default=None)
+    parser.add_argument("-e", "--estimate_only", help="estimate only", action='store_true', default=False)
+    parser.add_argument("-m", "--build_estimate_model", help="build estimate model", action='store_true', default=False)
+    args = parser.parse_args()
+    loader = Loader(args.db)
+    if args.estimate_only:
+        loader.estimate_all(args.build_estimate_model)
+    else:
+        loader.load_all(limit=args.limit, parallel=args.parallel)
+
+'''
+Copyright © 2022 Merck & Co., Inc., Rahway, NJ, USA and its affiliates. All rights reserved.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+'''

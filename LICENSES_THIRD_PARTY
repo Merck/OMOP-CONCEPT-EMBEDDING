@@ -1,0 +1,42 @@
+We use third-party libraries which may be distributed under different 
+licenses. We have attempted to list all of these third party libraries and 
+their licenses below.
+
+You must agree to the terms of these licenses, in addition to the DSpace 
+source code license, in order to use this software.
+
+GNU GENERAL PUBLIC LICENSE (GPL), Version 2.0 (https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html)
+  * rpy2 - https://github.com/rpy2/rpy2/blob/master/LICENSE
+  * R - https://www.r-project.org/Licenses/
+
+Other Open Source Licenses:
+  * PostgreSQL - PostgreSQL License (BSD-based): http://www.postgresql.org/about/licence/
+  * Python - PSF License Agreement: https://docs.python.org/3/license.html#psf-license
+  * pytorch - https://github.com/pytorch/pytorch/blob/master/LICENSE
+  * pybind11 - https://github.com/pybind/pybind11/blob/master/LICENSE
+  * fmt - https://github.com/fmtlib/fmt/blob/master/LICENSE.rst
+  * 
+
+MIT / X11 License (or adaptations) (http://www.opensource.org/licenses/MIT)
+  * spdlog - https://github.com/gabime/spdlog/blob/v1.x/LICENSE
+  * zstr - https://github.com/mateidavid/zstr/blob/master/LICENSE
+  * wheel - https://github.com/pypa/wheel/blob/main/LICENSE.txt
+  * sqlalchemy - https://github.com/sqlalchemy/sqlalchemy/blob/main/LICENSE
+  * devtools - https://github.com/r-lib/devtools/blob/main/LICENSE.md
+
+BSD License (http://www.opensource.org/licenses/BSD-3-Clause)
+  * xtensor - https://github.com/xtensor-stack/xtensor/blob/master/LICENSE
+  * xtensor-python - https://github.com/xtensor-stack/xtensor-python/blob/master/LICENSE
+  * xtl - https://github.com/xtensor-stack/xtl/blob/master/LICENSE
+  * ehash - https://github.com/aaalgo/ehash/blob/main/LICENSE
+  * numpy - https://github.com/numpy/numpy/blob/main/LICENSE.txt
+  * pandas - https://github.com/pandas-dev/pandas/blob/master/LICENSE
+  * scikit-learn - https://github.com/scikit-learn/scikit-learn/blob/main/COPYING
+
+
+Apache Software License, Version 2.0 (http://opensource.org/licenses/apache2.0)
+  * DatabaseConnector - https://github.com/OHDSI/DatabaseConnector#readme
+  * reticulate - https://github.com/rstudio/reticulate/blob/main/LICENSE
+  * OhdsiSharing - https://github.com/OHDSI/OhdsiSharing
+  * FeatureExtraction - https://github.com/OHDSI/FeatureExtraction
+  * PatientLevelPrediction - https://github.com/OHDSI/PatientLevelPrediction

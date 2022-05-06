@@ -1,0 +1,3995 @@
+{
+  "getPlpDataArgs": {
+    "maxSampleSize": 100000,
+    "washoutPeriod": 0
+  },
+  "skeletonType": "PatientLevelPredictionValidationStudy",
+  "populationSettings": [
+    {
+      "minTimeAtRisk": 364,
+      "requireTimeAtRisk": true,
+      "addExposureDaysToStart": false,
+      "addExposureDaysToEnd": true,
+      "riskWindowStart": 1,
+      "riskWindowEnd": 0,
+      "washoutPeriod": 0,
+      "removeSubjectsWithPriorOutcome": true,
+      "includeAllOutcomes": true,
+      "firstExposureOnly": false,
+      "priorOutcomeLookback": 99999,
+      "binary": true,
+      "attr_class": "populationSettings"
+    },
+    {
+      "minTimeAtRisk": 364,
+      "requireTimeAtRisk": true,
+      "addExposureDaysToStart": false,
+      "addExposureDaysToEnd": false,
+      "riskWindowStart": 1,
+      "riskWindowEnd": 365,
+      "washoutPeriod": 0,
+      "removeSubjectsWithPriorOutcome": true,
+      "includeAllOutcomes": true,
+      "firstExposureOnly": false,
+      "priorOutcomeLookback": 99999,
+      "binary": true,
+      "attr_class": "populationSettings"
+    }
+  ],
+  "organizationName": "OHDSI",
+  "targetIds": [
+    7540,
+    7996
+  ],
+  "runPlpArgs": {
+    "nfold": 5,
+    "minCovariateFraction": 0.001,
+    "splitSeed": 2027,
+    "testSplit": "person",
+    "testFraction": 0.2,
+    "normalizeData": true
+  },
+  "description": null,
+  "version": "v2.7.0",
+  "outcomeIds": 7464,
+  "skeletonVersion": "v0.0.1",
+  "createdDate": null,
+  "conceptSetCrossReference": [],
+  "createdBy": null,
+  "cohortDefinitions": [
+    {
+      "expression": {
+        "ExpressionLimit": {
+          "Type": "All"
+        },
+        "CollapseSettings": {
+          "CollapseType": "ERA",
+          "EraPad": 0
+        },
+        "CensorWindow": {
+          "StartDate": null,
+          "EndDate": null
+        },
+        "ConceptSets": [
+          {
+            "expression": {
+              "items": [
+                {
+                  "isExcluded": false,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 4152280,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "370143000",
+                    "VOCABULARY_ID": "SNOMED",
+                    "CONCEPT_NAME": "Major depressive disorder",
+                    "DOMAIN_ID": "Condition",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Clinical Finding",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": true
+                }
+              ]
+            },
+            "name": "MDD",
+            "id": 1
+          },
+          {
+            "expression": {
+              "items": [
+                {
+                  "isExcluded": false,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 1319998,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "149",
+                    "VOCABULARY_ID": "RxNorm",
+                    "CONCEPT_NAME": "Acebutolol",
+                    "DOMAIN_ID": "Drug",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Ingredient",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": true
+                },
+                {
+                  "isExcluded": false,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 1314002,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "1202",
+                    "VOCABULARY_ID": "RxNorm",
+                    "CONCEPT_NAME": "Atenolol",
+                    "DOMAIN_ID": "Drug",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Ingredient",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": true
+                },
+                {
+                  "isExcluded": false,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 1322081,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "1520",
+                    "VOCABULARY_ID": "RxNorm",
+                    "CONCEPT_NAME": "Betaxolol",
+                    "DOMAIN_ID": "Drug",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Ingredient",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": true
+                },
+                {
+                  "isExcluded": false,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 1338005,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "19484",
+                    "VOCABULARY_ID": "RxNorm",
+                    "CONCEPT_NAME": "Bisoprolol",
+                    "DOMAIN_ID": "Drug",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Ingredient",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": true
+                },
+                {
+                  "isExcluded": false,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 1346823,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "20352",
+                    "VOCABULARY_ID": "RxNorm",
+                    "CONCEPT_NAME": "carvedilol",
+                    "DOMAIN_ID": "Drug",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Ingredient",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": true
+                },
+                {
+                  "isExcluded": false,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 1386957,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "6185",
+                    "VOCABULARY_ID": "RxNorm",
+                    "CONCEPT_NAME": "Labetalol",
+                    "DOMAIN_ID": "Drug",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Ingredient",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": true
+                },
+                {
+                  "isExcluded": false,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 1307046,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "6918",
+                    "VOCABULARY_ID": "RxNorm",
+                    "CONCEPT_NAME": "Metoprolol",
+                    "DOMAIN_ID": "Drug",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Ingredient",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": true
+                },
+                {
+                  "isExcluded": false,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 1313200,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "7226",
+                    "VOCABULARY_ID": "RxNorm",
+                    "CONCEPT_NAME": "Nadolol",
+                    "DOMAIN_ID": "Drug",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Ingredient",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": true
+                },
+                {
+                  "isExcluded": false,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 1314577,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "31555",
+                    "VOCABULARY_ID": "RxNorm",
+                    "CONCEPT_NAME": "nebivolol",
+                    "DOMAIN_ID": "Drug",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Ingredient",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": true
+                },
+                {
+                  "isExcluded": false,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 1327978,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "7973",
+                    "VOCABULARY_ID": "RxNorm",
+                    "CONCEPT_NAME": "Penbutolol",
+                    "DOMAIN_ID": "Drug",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Ingredient",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": true
+                },
+                {
+                  "isExcluded": false,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 1345858,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "8332",
+                    "VOCABULARY_ID": "RxNorm",
+                    "CONCEPT_NAME": "Pindolol",
+                    "DOMAIN_ID": "Drug",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Ingredient",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": true
+                },
+                {
+                  "isExcluded": false,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 1353766,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "8787",
+                    "VOCABULARY_ID": "RxNorm",
+                    "CONCEPT_NAME": "Propranolol",
+                    "DOMAIN_ID": "Drug",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Ingredient",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": true
+                }
+              ]
+            },
+            "name": "BB",
+            "id": 2
+          },
+          {
+            "expression": {
+              "items": [
+                {
+                  "isExcluded": false,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 440383,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "35489007",
+                    "VOCABULARY_ID": "SNOMED",
+                    "CONCEPT_NAME": "Depressive disorder",
+                    "DOMAIN_ID": "Condition",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Clinical Finding",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": true
+                },
+                {
+                  "isExcluded": true,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 433440,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "78667006",
+                    "VOCABULARY_ID": "SNOMED",
+                    "CONCEPT_NAME": "Dysthymia",
+                    "DOMAIN_ID": "Condition",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Clinical Finding",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": true
+                },
+                {
+                  "isExcluded": true,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 4332994,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "231485007",
+                    "VOCABULARY_ID": "SNOMED",
+                    "CONCEPT_NAME": "Post-schizophrenic depression",
+                    "DOMAIN_ID": "Condition",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Clinical Finding",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": true
+                },
+                {
+                  "isExcluded": true,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 4224940,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "84760002",
+                    "VOCABULARY_ID": "SNOMED",
+                    "CONCEPT_NAME": "Schizoaffective disorder, depressive type",
+                    "DOMAIN_ID": "Condition",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Clinical Finding",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": true
+                },
+                {
+                  "isExcluded": true,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 442570,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "61403008",
+                    "VOCABULARY_ID": "SNOMED",
+                    "CONCEPT_NAME": "Severe depressed bipolar I disorder without psychotic features",
+                    "DOMAIN_ID": "Condition",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Clinical Finding",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": true
+                },
+                {
+                  "isExcluded": true,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 439243,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "191632009",
+                    "VOCABULARY_ID": "SNOMED",
+                    "CONCEPT_NAME": "Bipolar affective disorder, currently depressed, severe, with psychosis",
+                    "DOMAIN_ID": "Condition",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Clinical Finding",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": true
+                },
+                {
+                  "isExcluded": true,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 437528,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "191630001",
+                    "VOCABULARY_ID": "SNOMED",
+                    "CONCEPT_NAME": "Bipolar affective disorder, currently depressed, moderate",
+                    "DOMAIN_ID": "Condition",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Clinical Finding",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": true
+                }
+              ]
+            },
+            "name": "depressive disorder",
+            "id": 3
+          },
+          {
+            "expression": {
+              "items": [
+                {
+                  "isExcluded": false,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 438727,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "191659001",
+                    "VOCABULARY_ID": "SNOMED",
+                    "CONCEPT_NAME": "Atypical depressive disorder",
+                    "DOMAIN_ID": "Condition",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Clinical Finding",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": false
+                },
+                {
+                  "isExcluded": false,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 440078,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "191618007",
+                    "VOCABULARY_ID": "SNOMED",
+                    "CONCEPT_NAME": "Bipolar affective disorder, current episode manic",
+                    "DOMAIN_ID": "Condition",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Clinical Finding",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": false
+                },
+                {
+                  "isExcluded": false,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 435226,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "192362008",
+                    "VOCABULARY_ID": "SNOMED",
+                    "CONCEPT_NAME": "Bipolar affective disorder, current episode mixed",
+                    "DOMAIN_ID": "Condition",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Clinical Finding",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": false
+                },
+                {
+                  "isExcluded": false,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 437528,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "191630001",
+                    "VOCABULARY_ID": "SNOMED",
+                    "CONCEPT_NAME": "Bipolar affective disorder, currently depressed, moderate",
+                    "DOMAIN_ID": "Condition",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Clinical Finding",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": false
+                },
+                {
+                  "isExcluded": false,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 439256,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "191623007",
+                    "VOCABULARY_ID": "SNOMED",
+                    "CONCEPT_NAME": "Bipolar affective disorder, currently manic, severe, with psychosis",
+                    "DOMAIN_ID": "Condition",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Clinical Finding",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": false
+                },
+                {
+                  "isExcluded": false,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 436665,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "13746004",
+                    "VOCABULARY_ID": "SNOMED",
+                    "CONCEPT_NAME": "Bipolar disorder",
+                    "DOMAIN_ID": "Condition",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Clinical Finding",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": false
+                },
+                {
+                  "isExcluded": false,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 4310821,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "85248005",
+                    "VOCABULARY_ID": "SNOMED",
+                    "CONCEPT_NAME": "Bipolar disorder in remission",
+                    "DOMAIN_ID": "Condition",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Clinical Finding",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": false
+                },
+                {
+                  "isExcluded": false,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 4150985,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "31446002",
+                    "VOCABULARY_ID": "SNOMED",
+                    "CONCEPT_NAME": "Bipolar I disorder, most recent episode hypomanic",
+                    "DOMAIN_ID": "Condition",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Clinical Finding",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": false
+                },
+                {
+                  "isExcluded": false,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 440696,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "76105009",
+                    "VOCABULARY_ID": "SNOMED",
+                    "CONCEPT_NAME": "Cyclothymia",
+                    "DOMAIN_ID": "Condition",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Clinical Finding",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": false
+                },
+                {
+                  "isExcluded": false,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 433440,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "78667006",
+                    "VOCABULARY_ID": "SNOMED",
+                    "CONCEPT_NAME": "Dysthymia",
+                    "DOMAIN_ID": "Condition",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Clinical Finding",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": false
+                },
+                {
+                  "isExcluded": false,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 4282096,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "36923009",
+                    "VOCABULARY_ID": "SNOMED",
+                    "CONCEPT_NAME": "Major depression, single episode",
+                    "DOMAIN_ID": "Condition",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Clinical Finding",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": false
+                },
+                {
+                  "isExcluded": false,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 4195572,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "79298009",
+                    "VOCABULARY_ID": "SNOMED",
+                    "CONCEPT_NAME": "Mild major depression, single episode",
+                    "DOMAIN_ID": "Condition",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Clinical Finding",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": false
+                },
+                {
+                  "isExcluded": false,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 4228802,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "40379007",
+                    "VOCABULARY_ID": "SNOMED",
+                    "CONCEPT_NAME": "Mild recurrent major depression",
+                    "DOMAIN_ID": "Condition",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Clinical Finding",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": false
+                },
+                {
+                  "isExcluded": false,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 4049623,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "15639000",
+                    "VOCABULARY_ID": "SNOMED",
+                    "CONCEPT_NAME": "Moderate major depression, single episode",
+                    "DOMAIN_ID": "Condition",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Clinical Finding",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": false
+                },
+                {
+                  "isExcluded": false,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 4077577,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "18818009",
+                    "VOCABULARY_ID": "SNOMED",
+                    "CONCEPT_NAME": "Moderate recurrent major depression",
+                    "DOMAIN_ID": "Condition",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Clinical Finding",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": false
+                },
+                {
+                  "isExcluded": false,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 444100,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "46206005",
+                    "VOCABULARY_ID": "SNOMED",
+                    "CONCEPT_NAME": "Mood disorder",
+                    "DOMAIN_ID": "Condition",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Clinical Finding",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": false
+                },
+                {
+                  "isExcluded": false,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 4226155,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "40568001",
+                    "VOCABULARY_ID": "SNOMED",
+                    "CONCEPT_NAME": "Recurrent brief depressive disorder",
+                    "DOMAIN_ID": "Condition",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Clinical Finding",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": false
+                },
+                {
+                  "isExcluded": false,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 4098302,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "191616006",
+                    "VOCABULARY_ID": "SNOMED",
+                    "CONCEPT_NAME": "Recurrent depression",
+                    "DOMAIN_ID": "Condition",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Clinical Finding",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": false
+                },
+                {
+                  "isExcluded": false,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 4282316,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "66344007",
+                    "VOCABULARY_ID": "SNOMED",
+                    "CONCEPT_NAME": "Recurrent major depression",
+                    "DOMAIN_ID": "Condition",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Clinical Finding",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": false
+                },
+                {
+                  "isExcluded": false,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 433991,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "68019004",
+                    "VOCABULARY_ID": "SNOMED",
+                    "CONCEPT_NAME": "Recurrent major depression in remission",
+                    "DOMAIN_ID": "Condition",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Clinical Finding",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": false
+                },
+                {
+                  "isExcluded": false,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 434911,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "191613003",
+                    "VOCABULARY_ID": "SNOMED",
+                    "CONCEPT_NAME": "Recurrent major depressive episodes, severe, with psychosis",
+                    "DOMAIN_ID": "Condition",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Clinical Finding",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": false
+                },
+                {
+                  "isExcluded": false,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 442570,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "61403008",
+                    "VOCABULARY_ID": "SNOMED",
+                    "CONCEPT_NAME": "Severe depressed bipolar I disorder without psychotic features",
+                    "DOMAIN_ID": "Condition",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Clinical Finding",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": false
+                },
+                {
+                  "isExcluded": false,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 438406,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "430852001",
+                    "VOCABULARY_ID": "SNOMED",
+                    "CONCEPT_NAME": "Severe major depression, single episode, with psychotic features",
+                    "DOMAIN_ID": "Condition",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Clinical Finding",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": false
+                },
+                {
+                  "isExcluded": false,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 441534,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "76441001",
+                    "VOCABULARY_ID": "SNOMED",
+                    "CONCEPT_NAME": "Severe major depression, single episode, without psychotic features",
+                    "DOMAIN_ID": "Condition",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Clinical Finding",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": false
+                },
+                {
+                  "isExcluded": false,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 435220,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "36474008",
+                    "VOCABULARY_ID": "SNOMED",
+                    "CONCEPT_NAME": "Severe recurrent major depression without psychotic features",
+                    "DOMAIN_ID": "Condition",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Clinical Finding",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": false
+                },
+                {
+                  "isExcluded": false,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 439254,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "191627008",
+                    "VOCABULARY_ID": "SNOMED",
+                    "CONCEPT_NAME": "Bipolar affective disorder, current episode depression",
+                    "DOMAIN_ID": "Condition",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Clinical Finding",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": false
+                },
+                {
+                  "isExcluded": false,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 440383,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "35489007",
+                    "VOCABULARY_ID": "SNOMED",
+                    "CONCEPT_NAME": "Depressive disorder",
+                    "DOMAIN_ID": "Condition",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Clinical Finding",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": false
+                },
+                {
+                  "isExcluded": false,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 4336957,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "87512008",
+                    "VOCABULARY_ID": "SNOMED",
+                    "CONCEPT_NAME": "Mild major depression",
+                    "DOMAIN_ID": "Condition",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Clinical Finding",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": false
+                },
+                {
+                  "isExcluded": false,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 4307111,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "832007",
+                    "VOCABULARY_ID": "SNOMED",
+                    "CONCEPT_NAME": "Moderate major depression",
+                    "DOMAIN_ID": "Condition",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Clinical Finding",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": false
+                },
+                {
+                  "isExcluded": false,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 4250023,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "73867007",
+                    "VOCABULARY_ID": "SNOMED",
+                    "CONCEPT_NAME": "Severe major depression with psychotic features",
+                    "DOMAIN_ID": "Condition",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Clinical Finding",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": false
+                },
+                {
+                  "isExcluded": false,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 4327337,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "75084000",
+                    "VOCABULARY_ID": "SNOMED",
+                    "CONCEPT_NAME": "Severe major depression without psychotic features",
+                    "DOMAIN_ID": "Condition",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Clinical Finding",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": false
+                }
+              ]
+            },
+            "name": "ICD10 F31-39 (AUSOMv531, CDMPv531) --manic episode\ub97c \uc81c\uc678\ud55c mood disorder",
+            "id": 5
+          },
+          {
+            "expression": {
+              "items": [
+                {
+                  "isExcluded": false,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 316866,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "38341003",
+                    "VOCABULARY_ID": "SNOMED",
+                    "CONCEPT_NAME": "Hypertensive disorder",
+                    "DOMAIN_ID": "Condition",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Clinical Finding",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": true
+                },
+                {
+                  "isExcluded": false,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 321318,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "194828000",
+                    "VOCABULARY_ID": "SNOMED",
+                    "CONCEPT_NAME": "Angina pectoris",
+                    "DOMAIN_ID": "Condition",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Clinical Finding",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": true
+                },
+                {
+                  "isExcluded": false,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 4329847,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "22298006",
+                    "VOCABULARY_ID": "SNOMED",
+                    "CONCEPT_NAME": "Myocardial infarction",
+                    "DOMAIN_ID": "Condition",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Clinical Finding",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": true
+                },
+                {
+                  "isExcluded": false,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 316139,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "84114007",
+                    "VOCABULARY_ID": "SNOMED",
+                    "CONCEPT_NAME": "Heart failure",
+                    "DOMAIN_ID": "Condition",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Clinical Finding",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": true
+                }
+              ]
+            },
+            "name": "Indication",
+            "id": 6
+          }
+        ],
+        "EndStrategy": {
+          "DateOffset": {
+            "DateField": "EndDate",
+            "Offset": 0
+          }
+        },
+        "cdmVersionRange": ">=5.0.0",
+        "CensoringCriteria": [],
+        "Title": null,
+        "AdditionalCriteria": null,
+        "QualifiedLimit": {
+          "Type": "First"
+        },
+        "InclusionRules": [],
+        "PrimaryCriteria": {
+          "CriteriaList": [
+            {
+              "ConditionOccurrence": {
+                "OccurrenceEndDate": null,
+                "CorrelatedCriteria": null,
+                "ConditionTypeExclude": false,
+                "CodesetId": 1,
+                "ProviderSpecialty": null,
+                "Gender": null,
+                "VisitType": null,
+                "First": true,
+                "OccurrenceStartDate": null,
+                "ConditionType": null,
+                "ConditionSourceConcept": null,
+                "StopReason": null,
+                "Age": null
+              }
+            }
+          ],
+          "PrimaryCriteriaLimit": {
+            "Type": "All"
+          },
+          "ObservationWindow": {
+            "PostDays": 0,
+            "PriorDays": 0
+          }
+        }
+      },
+      "createdDate": "2020-09-08T08:57:02.677+0000",
+      "createdBy": "jshsh7553",
+      "name": "Major Depressive Disorder",
+      "modifiedDate": "2020-09-24T00:43:12.780+0000",
+      "description": null,
+      "expressionType": "SIMPLE_EXPRESSION",
+      "modifiedBy": "jshsh7553",
+      "id": 1180
+    },
+    {
+      "expression": {
+        "ExpressionLimit": {
+          "Type": "All"
+        },
+        "CollapseSettings": {
+          "CollapseType": "ERA",
+          "EraPad": 0
+        },
+        "CensorWindow": {
+          "StartDate": null,
+          "EndDate": null
+        },
+        "ConceptSets": [
+          {
+            "expression": {
+              "items": [
+                {
+                  "isExcluded": false,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 4152280,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "370143000",
+                    "VOCABULARY_ID": "SNOMED",
+                    "CONCEPT_NAME": "Major depressive disorder",
+                    "DOMAIN_ID": "Condition",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Clinical Finding",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": true
+                }
+              ]
+            },
+            "name": "MDD",
+            "id": 1
+          },
+          {
+            "expression": {
+              "items": [
+                {
+                  "isExcluded": false,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 1319998,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "149",
+                    "VOCABULARY_ID": "RxNorm",
+                    "CONCEPT_NAME": "Acebutolol",
+                    "DOMAIN_ID": "Drug",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Ingredient",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": true
+                },
+                {
+                  "isExcluded": false,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 1314002,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "1202",
+                    "VOCABULARY_ID": "RxNorm",
+                    "CONCEPT_NAME": "Atenolol",
+                    "DOMAIN_ID": "Drug",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Ingredient",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": true
+                },
+                {
+                  "isExcluded": false,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 1322081,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "1520",
+                    "VOCABULARY_ID": "RxNorm",
+                    "CONCEPT_NAME": "Betaxolol",
+                    "DOMAIN_ID": "Drug",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Ingredient",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": true
+                },
+                {
+                  "isExcluded": false,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 1338005,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "19484",
+                    "VOCABULARY_ID": "RxNorm",
+                    "CONCEPT_NAME": "Bisoprolol",
+                    "DOMAIN_ID": "Drug",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Ingredient",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": true
+                },
+                {
+                  "isExcluded": false,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 1346823,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "20352",
+                    "VOCABULARY_ID": "RxNorm",
+                    "CONCEPT_NAME": "carvedilol",
+                    "DOMAIN_ID": "Drug",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Ingredient",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": true
+                },
+                {
+                  "isExcluded": false,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 1386957,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "6185",
+                    "VOCABULARY_ID": "RxNorm",
+                    "CONCEPT_NAME": "Labetalol",
+                    "DOMAIN_ID": "Drug",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Ingredient",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": true
+                },
+                {
+                  "isExcluded": false,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 1307046,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "6918",
+                    "VOCABULARY_ID": "RxNorm",
+                    "CONCEPT_NAME": "Metoprolol",
+                    "DOMAIN_ID": "Drug",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Ingredient",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": true
+                },
+                {
+                  "isExcluded": false,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 1313200,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "7226",
+                    "VOCABULARY_ID": "RxNorm",
+                    "CONCEPT_NAME": "Nadolol",
+                    "DOMAIN_ID": "Drug",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Ingredient",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": true
+                },
+                {
+                  "isExcluded": false,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 1314577,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "31555",
+                    "VOCABULARY_ID": "RxNorm",
+                    "CONCEPT_NAME": "nebivolol",
+                    "DOMAIN_ID": "Drug",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Ingredient",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": true
+                },
+                {
+                  "isExcluded": false,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 1327978,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "7973",
+                    "VOCABULARY_ID": "RxNorm",
+                    "CONCEPT_NAME": "Penbutolol",
+                    "DOMAIN_ID": "Drug",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Ingredient",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": true
+                },
+                {
+                  "isExcluded": false,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 1345858,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "8332",
+                    "VOCABULARY_ID": "RxNorm",
+                    "CONCEPT_NAME": "Pindolol",
+                    "DOMAIN_ID": "Drug",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Ingredient",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": true
+                },
+                {
+                  "isExcluded": false,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 1353766,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "8787",
+                    "VOCABULARY_ID": "RxNorm",
+                    "CONCEPT_NAME": "Propranolol",
+                    "DOMAIN_ID": "Drug",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Ingredient",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": true
+                }
+              ]
+            },
+            "name": "BB",
+            "id": 2
+          },
+          {
+            "expression": {
+              "items": [
+                {
+                  "isExcluded": false,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 439254,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "191627008",
+                    "VOCABULARY_ID": "SNOMED",
+                    "CONCEPT_NAME": "Bipolar affective disorder, current episode depression",
+                    "DOMAIN_ID": "Condition",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Clinical Finding",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": false
+                },
+                {
+                  "isExcluded": false,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 440078,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "191618007",
+                    "VOCABULARY_ID": "SNOMED",
+                    "CONCEPT_NAME": "Bipolar affective disorder, current episode manic",
+                    "DOMAIN_ID": "Condition",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Clinical Finding",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": false
+                },
+                {
+                  "isExcluded": false,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 435226,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "192362008",
+                    "VOCABULARY_ID": "SNOMED",
+                    "CONCEPT_NAME": "Bipolar affective disorder, current episode mixed",
+                    "DOMAIN_ID": "Condition",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Clinical Finding",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": false
+                },
+                {
+                  "isExcluded": false,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 439256,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "191623007",
+                    "VOCABULARY_ID": "SNOMED",
+                    "CONCEPT_NAME": "Bipolar affective disorder, currently manic, severe, with psychosis",
+                    "DOMAIN_ID": "Condition",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Clinical Finding",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": false
+                },
+                {
+                  "isExcluded": false,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 436665,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "13746004",
+                    "VOCABULARY_ID": "SNOMED",
+                    "CONCEPT_NAME": "Bipolar disorder",
+                    "DOMAIN_ID": "Condition",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Clinical Finding",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": false
+                },
+                {
+                  "isExcluded": false,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 4310821,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "85248005",
+                    "VOCABULARY_ID": "SNOMED",
+                    "CONCEPT_NAME": "Bipolar disorder in remission",
+                    "DOMAIN_ID": "Condition",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Clinical Finding",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": false
+                },
+                {
+                  "isExcluded": false,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 4150985,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "31446002",
+                    "VOCABULARY_ID": "SNOMED",
+                    "CONCEPT_NAME": "Bipolar I disorder, most recent episode hypomanic",
+                    "DOMAIN_ID": "Condition",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Clinical Finding",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": false
+                },
+                {
+                  "isExcluded": false,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 440696,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "76105009",
+                    "VOCABULARY_ID": "SNOMED",
+                    "CONCEPT_NAME": "Cyclothymia",
+                    "DOMAIN_ID": "Condition",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Clinical Finding",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": false
+                },
+                {
+                  "isExcluded": false,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 440383,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "35489007",
+                    "VOCABULARY_ID": "SNOMED",
+                    "CONCEPT_NAME": "Depressive disorder",
+                    "DOMAIN_ID": "Condition",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Clinical Finding",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": false
+                },
+                {
+                  "isExcluded": false,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 433440,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "78667006",
+                    "VOCABULARY_ID": "SNOMED",
+                    "CONCEPT_NAME": "Dysthymia",
+                    "DOMAIN_ID": "Condition",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Clinical Finding",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": false
+                },
+                {
+                  "isExcluded": false,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 4336957,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "87512008",
+                    "VOCABULARY_ID": "SNOMED",
+                    "CONCEPT_NAME": "Mild major depression",
+                    "DOMAIN_ID": "Condition",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Clinical Finding",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": false
+                },
+                {
+                  "isExcluded": false,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 4228802,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "40379007",
+                    "VOCABULARY_ID": "SNOMED",
+                    "CONCEPT_NAME": "Mild recurrent major depression",
+                    "DOMAIN_ID": "Condition",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Clinical Finding",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": false
+                },
+                {
+                  "isExcluded": false,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 4307111,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "832007",
+                    "VOCABULARY_ID": "SNOMED",
+                    "CONCEPT_NAME": "Moderate major depression",
+                    "DOMAIN_ID": "Condition",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Clinical Finding",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": false
+                },
+                {
+                  "isExcluded": false,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 4077577,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "18818009",
+                    "VOCABULARY_ID": "SNOMED",
+                    "CONCEPT_NAME": "Moderate recurrent major depression",
+                    "DOMAIN_ID": "Condition",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Clinical Finding",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": false
+                },
+                {
+                  "isExcluded": false,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 444100,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "46206005",
+                    "VOCABULARY_ID": "SNOMED",
+                    "CONCEPT_NAME": "Mood disorder",
+                    "DOMAIN_ID": "Condition",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Clinical Finding",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": false
+                },
+                {
+                  "isExcluded": false,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 4098302,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "191616006",
+                    "VOCABULARY_ID": "SNOMED",
+                    "CONCEPT_NAME": "Recurrent depression",
+                    "DOMAIN_ID": "Condition",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Clinical Finding",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": false
+                },
+                {
+                  "isExcluded": false,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 4282316,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "66344007",
+                    "VOCABULARY_ID": "SNOMED",
+                    "CONCEPT_NAME": "Recurrent major depression",
+                    "DOMAIN_ID": "Condition",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Clinical Finding",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": false
+                },
+                {
+                  "isExcluded": false,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 433991,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "68019004",
+                    "VOCABULARY_ID": "SNOMED",
+                    "CONCEPT_NAME": "Recurrent major depression in remission",
+                    "DOMAIN_ID": "Condition",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Clinical Finding",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": false
+                },
+                {
+                  "isExcluded": false,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 434911,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "191613003",
+                    "VOCABULARY_ID": "SNOMED",
+                    "CONCEPT_NAME": "Recurrent major depressive episodes, severe, with psychosis",
+                    "DOMAIN_ID": "Condition",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Clinical Finding",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": false
+                },
+                {
+                  "isExcluded": false,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 4250023,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "73867007",
+                    "VOCABULARY_ID": "SNOMED",
+                    "CONCEPT_NAME": "Severe major depression with psychotic features",
+                    "DOMAIN_ID": "Condition",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Clinical Finding",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": false
+                },
+                {
+                  "isExcluded": false,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 4327337,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "75084000",
+                    "VOCABULARY_ID": "SNOMED",
+                    "CONCEPT_NAME": "Severe major depression without psychotic features",
+                    "DOMAIN_ID": "Condition",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Clinical Finding",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": false
+                },
+                {
+                  "isExcluded": false,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 435220,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "36474008",
+                    "VOCABULARY_ID": "SNOMED",
+                    "CONCEPT_NAME": "Severe recurrent major depression without psychotic features",
+                    "DOMAIN_ID": "Condition",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Clinical Finding",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": false
+                }
+              ]
+            },
+            "name": "ICD10 F31-39 (CDMPv531)",
+            "id": 4
+          },
+          {
+            "expression": {
+              "items": [
+                {
+                  "isExcluded": false,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 438727,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "191659001",
+                    "VOCABULARY_ID": "SNOMED",
+                    "CONCEPT_NAME": "Atypical depressive disorder",
+                    "DOMAIN_ID": "Condition",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Clinical Finding",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": false
+                },
+                {
+                  "isExcluded": false,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 440078,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "191618007",
+                    "VOCABULARY_ID": "SNOMED",
+                    "CONCEPT_NAME": "Bipolar affective disorder, current episode manic",
+                    "DOMAIN_ID": "Condition",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Clinical Finding",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": false
+                },
+                {
+                  "isExcluded": false,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 435226,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "192362008",
+                    "VOCABULARY_ID": "SNOMED",
+                    "CONCEPT_NAME": "Bipolar affective disorder, current episode mixed",
+                    "DOMAIN_ID": "Condition",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Clinical Finding",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": false
+                },
+                {
+                  "isExcluded": false,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 437528,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "191630001",
+                    "VOCABULARY_ID": "SNOMED",
+                    "CONCEPT_NAME": "Bipolar affective disorder, currently depressed, moderate",
+                    "DOMAIN_ID": "Condition",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Clinical Finding",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": false
+                },
+                {
+                  "isExcluded": false,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 439256,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "191623007",
+                    "VOCABULARY_ID": "SNOMED",
+                    "CONCEPT_NAME": "Bipolar affective disorder, currently manic, severe, with psychosis",
+                    "DOMAIN_ID": "Condition",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Clinical Finding",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": false
+                },
+                {
+                  "isExcluded": false,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 436665,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "13746004",
+                    "VOCABULARY_ID": "SNOMED",
+                    "CONCEPT_NAME": "Bipolar disorder",
+                    "DOMAIN_ID": "Condition",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Clinical Finding",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": false
+                },
+                {
+                  "isExcluded": false,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 4310821,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "85248005",
+                    "VOCABULARY_ID": "SNOMED",
+                    "CONCEPT_NAME": "Bipolar disorder in remission",
+                    "DOMAIN_ID": "Condition",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Clinical Finding",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": false
+                },
+                {
+                  "isExcluded": false,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 4150985,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "31446002",
+                    "VOCABULARY_ID": "SNOMED",
+                    "CONCEPT_NAME": "Bipolar I disorder, most recent episode hypomanic",
+                    "DOMAIN_ID": "Condition",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Clinical Finding",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": false
+                },
+                {
+                  "isExcluded": false,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 440696,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "76105009",
+                    "VOCABULARY_ID": "SNOMED",
+                    "CONCEPT_NAME": "Cyclothymia",
+                    "DOMAIN_ID": "Condition",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Clinical Finding",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": false
+                },
+                {
+                  "isExcluded": false,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 433440,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "78667006",
+                    "VOCABULARY_ID": "SNOMED",
+                    "CONCEPT_NAME": "Dysthymia",
+                    "DOMAIN_ID": "Condition",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Clinical Finding",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": false
+                },
+                {
+                  "isExcluded": false,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 4282096,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "36923009",
+                    "VOCABULARY_ID": "SNOMED",
+                    "CONCEPT_NAME": "Major depression, single episode",
+                    "DOMAIN_ID": "Condition",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Clinical Finding",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": false
+                },
+                {
+                  "isExcluded": false,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 4195572,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "79298009",
+                    "VOCABULARY_ID": "SNOMED",
+                    "CONCEPT_NAME": "Mild major depression, single episode",
+                    "DOMAIN_ID": "Condition",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Clinical Finding",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": false
+                },
+                {
+                  "isExcluded": false,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 4228802,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "40379007",
+                    "VOCABULARY_ID": "SNOMED",
+                    "CONCEPT_NAME": "Mild recurrent major depression",
+                    "DOMAIN_ID": "Condition",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Clinical Finding",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": false
+                },
+                {
+                  "isExcluded": false,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 4049623,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "15639000",
+                    "VOCABULARY_ID": "SNOMED",
+                    "CONCEPT_NAME": "Moderate major depression, single episode",
+                    "DOMAIN_ID": "Condition",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Clinical Finding",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": false
+                },
+                {
+                  "isExcluded": false,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 4077577,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "18818009",
+                    "VOCABULARY_ID": "SNOMED",
+                    "CONCEPT_NAME": "Moderate recurrent major depression",
+                    "DOMAIN_ID": "Condition",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Clinical Finding",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": false
+                },
+                {
+                  "isExcluded": false,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 444100,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "46206005",
+                    "VOCABULARY_ID": "SNOMED",
+                    "CONCEPT_NAME": "Mood disorder",
+                    "DOMAIN_ID": "Condition",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Clinical Finding",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": false
+                },
+                {
+                  "isExcluded": false,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 4226155,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "40568001",
+                    "VOCABULARY_ID": "SNOMED",
+                    "CONCEPT_NAME": "Recurrent brief depressive disorder",
+                    "DOMAIN_ID": "Condition",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Clinical Finding",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": false
+                },
+                {
+                  "isExcluded": false,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 4098302,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "191616006",
+                    "VOCABULARY_ID": "SNOMED",
+                    "CONCEPT_NAME": "Recurrent depression",
+                    "DOMAIN_ID": "Condition",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Clinical Finding",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": false
+                },
+                {
+                  "isExcluded": false,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 4282316,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "66344007",
+                    "VOCABULARY_ID": "SNOMED",
+                    "CONCEPT_NAME": "Recurrent major depression",
+                    "DOMAIN_ID": "Condition",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Clinical Finding",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": false
+                },
+                {
+                  "isExcluded": false,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 433991,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "68019004",
+                    "VOCABULARY_ID": "SNOMED",
+                    "CONCEPT_NAME": "Recurrent major depression in remission",
+                    "DOMAIN_ID": "Condition",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Clinical Finding",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": false
+                },
+                {
+                  "isExcluded": false,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 434911,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "191613003",
+                    "VOCABULARY_ID": "SNOMED",
+                    "CONCEPT_NAME": "Recurrent major depressive episodes, severe, with psychosis",
+                    "DOMAIN_ID": "Condition",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Clinical Finding",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": false
+                },
+                {
+                  "isExcluded": false,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 442570,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "61403008",
+                    "VOCABULARY_ID": "SNOMED",
+                    "CONCEPT_NAME": "Severe depressed bipolar I disorder without psychotic features",
+                    "DOMAIN_ID": "Condition",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Clinical Finding",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": false
+                },
+                {
+                  "isExcluded": false,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 438406,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "430852001",
+                    "VOCABULARY_ID": "SNOMED",
+                    "CONCEPT_NAME": "Severe major depression, single episode, with psychotic features",
+                    "DOMAIN_ID": "Condition",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Clinical Finding",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": false
+                },
+                {
+                  "isExcluded": false,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 441534,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "76441001",
+                    "VOCABULARY_ID": "SNOMED",
+                    "CONCEPT_NAME": "Severe major depression, single episode, without psychotic features",
+                    "DOMAIN_ID": "Condition",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Clinical Finding",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": false
+                },
+                {
+                  "isExcluded": false,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 435220,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "36474008",
+                    "VOCABULARY_ID": "SNOMED",
+                    "CONCEPT_NAME": "Severe recurrent major depression without psychotic features",
+                    "DOMAIN_ID": "Condition",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Clinical Finding",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": false
+                }
+              ]
+            },
+            "name": "ICD10 F31-39 (AUSOMv531) --mood disorder excluding manic episode",
+            "id": 5
+          },
+          {
+            "expression": {
+              "items": [
+                {
+                  "isExcluded": false,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 316866,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "38341003",
+                    "VOCABULARY_ID": "SNOMED",
+                    "CONCEPT_NAME": "Hypertensive disorder",
+                    "DOMAIN_ID": "Condition",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Clinical Finding",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": true
+                },
+                {
+                  "isExcluded": false,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 321318,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "194828000",
+                    "VOCABULARY_ID": "SNOMED",
+                    "CONCEPT_NAME": "Angina pectoris",
+                    "DOMAIN_ID": "Condition",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Clinical Finding",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": true
+                },
+                {
+                  "isExcluded": false,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 4329847,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "22298006",
+                    "VOCABULARY_ID": "SNOMED",
+                    "CONCEPT_NAME": "Myocardial infarction",
+                    "DOMAIN_ID": "Condition",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Clinical Finding",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": true
+                },
+                {
+                  "isExcluded": false,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 316139,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "84114007",
+                    "VOCABULARY_ID": "SNOMED",
+                    "CONCEPT_NAME": "Heart failure",
+                    "DOMAIN_ID": "Condition",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Clinical Finding",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": true
+                },
+                {
+                  "isExcluded": false,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 317576,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "53741008",
+                    "VOCABULARY_ID": "SNOMED",
+                    "CONCEPT_NAME": "Coronary arteriosclerosis",
+                    "DOMAIN_ID": "Condition",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Clinical Finding",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": true
+                }
+              ]
+            },
+            "name": "cardiovascular indication",
+            "id": 6
+          },
+          {
+            "expression": {
+              "items": [
+                {
+                  "isExcluded": false,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 440383,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "35489007",
+                    "VOCABULARY_ID": "SNOMED",
+                    "CONCEPT_NAME": "Depressive disorder",
+                    "DOMAIN_ID": "Condition",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Clinical Finding",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": true
+                }
+              ]
+            },
+            "name": "depressive disorder",
+            "id": 7
+          },
+          {
+            "expression": {
+              "items": [
+                {
+                  "isExcluded": false,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 442077,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "197480006",
+                    "VOCABULARY_ID": "SNOMED",
+                    "CONCEPT_NAME": "Anxiety disorder",
+                    "DOMAIN_ID": "Condition",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Clinical Finding",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": true
+                }
+              ]
+            },
+            "name": "anxiety disorder",
+            "id": 8
+          },
+          {
+            "expression": {
+              "items": [
+                {
+                  "isExcluded": false,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 435783,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "58214004",
+                    "VOCABULARY_ID": "SNOMED",
+                    "CONCEPT_NAME": "Schizophrenia",
+                    "DOMAIN_ID": "Condition",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Clinical Finding",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": true
+                }
+              ]
+            },
+            "name": "schizophrenia",
+            "id": 9
+          },
+          {
+            "expression": {
+              "items": [
+                {
+                  "isExcluded": false,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 4141640,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "266607004",
+                    "VOCABULARY_ID": "SNOMED",
+                    "CONCEPT_NAME": "Perimenopausal disorder",
+                    "DOMAIN_ID": "Condition",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Clinical Finding",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": true
+                }
+              ]
+            },
+            "name": "perimenopausal disorder",
+            "id": 10
+          },
+          {
+            "expression": {
+              "items": [
+                {
+                  "isExcluded": false,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 21604690.0,
+                    "STANDARD_CONCEPT": "C",
+                    "CONCEPT_CODE": "N06A",
+                    "VOCABULARY_ID": "ATC",
+                    "CONCEPT_NAME": "ANTIDEPRESSANTS",
+                    "DOMAIN_ID": "Drug",
+                    "STANDARD_CONCEPT_CAPTION": "Classification",
+                    "CONCEPT_CLASS_ID": "ATC 3rd",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": true
+                }
+              ]
+            },
+            "name": "ANTIDEPRESSANTS",
+            "id": 11
+          },
+          {
+            "expression": {
+              "items": [
+                {
+                  "isExcluded": false,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 715939,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "321988",
+                    "VOCABULARY_ID": "RxNorm",
+                    "CONCEPT_NAME": "Escitalopram",
+                    "DOMAIN_ID": "Drug",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Ingredient",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": true
+                },
+                {
+                  "isExcluded": false,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 797617,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "2556",
+                    "VOCABULARY_ID": "RxNorm",
+                    "CONCEPT_NAME": "Citalopram",
+                    "DOMAIN_ID": "Drug",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Ingredient",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": true
+                },
+                {
+                  "isExcluded": false,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 755695,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "4493",
+                    "VOCABULARY_ID": "RxNorm",
+                    "CONCEPT_NAME": "Fluoxetine",
+                    "DOMAIN_ID": "Drug",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Ingredient",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": true
+                },
+                {
+                  "isExcluded": false,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 722031,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "32937",
+                    "VOCABULARY_ID": "RxNorm",
+                    "CONCEPT_NAME": "Paroxetine",
+                    "DOMAIN_ID": "Drug",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Ingredient",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": true
+                },
+                {
+                  "isExcluded": false,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 739138,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "36437",
+                    "VOCABULARY_ID": "RxNorm",
+                    "CONCEPT_NAME": "Sertraline",
+                    "DOMAIN_ID": "Drug",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Ingredient",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": true
+                }
+              ]
+            },
+            "name": "SSRI",
+            "id": 12
+          },
+          {
+            "expression": {
+              "items": [
+                {
+                  "isExcluded": false,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 1319998,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "149",
+                    "VOCABULARY_ID": "RxNorm",
+                    "CONCEPT_NAME": "Acebutolol",
+                    "DOMAIN_ID": "Drug",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Ingredient",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": true
+                },
+                {
+                  "isExcluded": false,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 1314002,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "1202",
+                    "VOCABULARY_ID": "RxNorm",
+                    "CONCEPT_NAME": "Atenolol",
+                    "DOMAIN_ID": "Drug",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Ingredient",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": true
+                },
+                {
+                  "isExcluded": true,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 1322081,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "1520",
+                    "VOCABULARY_ID": "RxNorm",
+                    "CONCEPT_NAME": "Betaxolol",
+                    "DOMAIN_ID": "Drug",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Ingredient",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": true
+                },
+                {
+                  "isExcluded": false,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 1338005,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "19484",
+                    "VOCABULARY_ID": "RxNorm",
+                    "CONCEPT_NAME": "Bisoprolol",
+                    "DOMAIN_ID": "Drug",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Ingredient",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": true
+                },
+                {
+                  "isExcluded": true,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 950370,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "2116",
+                    "VOCABULARY_ID": "RxNorm",
+                    "CONCEPT_NAME": "Carteolol",
+                    "DOMAIN_ID": "Drug",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Ingredient",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": true
+                },
+                {
+                  "isExcluded": false,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 1346823,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "20352",
+                    "VOCABULARY_ID": "RxNorm",
+                    "CONCEPT_NAME": "carvedilol",
+                    "DOMAIN_ID": "Drug",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Ingredient",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": true
+                },
+                {
+                  "isExcluded": false,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 19063580.0,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "49737",
+                    "VOCABULARY_ID": "RxNorm",
+                    "CONCEPT_NAME": "esmolol",
+                    "DOMAIN_ID": "Drug",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Ingredient",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": true
+                },
+                {
+                  "isExcluded": false,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 1386957,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "6185",
+                    "VOCABULARY_ID": "RxNorm",
+                    "CONCEPT_NAME": "Labetalol",
+                    "DOMAIN_ID": "Drug",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Ingredient",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": true
+                },
+                {
+                  "isExcluded": false,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 1307046,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "6918",
+                    "VOCABULARY_ID": "RxNorm",
+                    "CONCEPT_NAME": "Metoprolol",
+                    "DOMAIN_ID": "Drug",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Ingredient",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": true
+                },
+                {
+                  "isExcluded": false,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 1314577,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "31555",
+                    "VOCABULARY_ID": "RxNorm",
+                    "CONCEPT_NAME": "nebivolol",
+                    "DOMAIN_ID": "Drug",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Ingredient",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": true
+                },
+                {
+                  "isExcluded": false,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 1327978,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "7973",
+                    "VOCABULARY_ID": "RxNorm",
+                    "CONCEPT_NAME": "Penbutolol",
+                    "DOMAIN_ID": "Drug",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Ingredient",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": true
+                },
+                {
+                  "isExcluded": false,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 1345858,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "8332",
+                    "VOCABULARY_ID": "RxNorm",
+                    "CONCEPT_NAME": "Pindolol",
+                    "DOMAIN_ID": "Drug",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Ingredient",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": true
+                },
+                {
+                  "isExcluded": false,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 1353766,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "8787",
+                    "VOCABULARY_ID": "RxNorm",
+                    "CONCEPT_NAME": "Propranolol",
+                    "DOMAIN_ID": "Drug",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Ingredient",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": true
+                },
+                {
+                  "isExcluded": false,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 1370109,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "9947",
+                    "VOCABULARY_ID": "RxNorm",
+                    "CONCEPT_NAME": "Sotalol",
+                    "DOMAIN_ID": "Drug",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Ingredient",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": true
+                },
+                {
+                  "isExcluded": true,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 40798660.0,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "OMOP2720992",
+                    "VOCABULARY_ID": "RxNorm Extension",
+                    "CONCEPT_NAME": "Befunolol",
+                    "DOMAIN_ID": "Drug",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Ingredient",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": true
+                },
+                {
+                  "isExcluded": false,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 19049140.0,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "20498",
+                    "VOCABULARY_ID": "RxNorm",
+                    "CONCEPT_NAME": "Celiprolol",
+                    "DOMAIN_ID": "Drug",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Ingredient",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": true
+                },
+                {
+                  "isExcluded": false,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 1313200,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "7226",
+                    "VOCABULARY_ID": "RxNorm",
+                    "CONCEPT_NAME": "Nadolol",
+                    "DOMAIN_ID": "Drug",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Ingredient",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": true
+                },
+                {
+                  "isExcluded": true,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 902427,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "10600",
+                    "VOCABULARY_ID": "RxNorm",
+                    "CONCEPT_NAME": "Timolol",
+                    "DOMAIN_ID": "Drug",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Ingredient",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": true
+                }
+              ]
+            },
+            "name": "BB (cardiovascular, v1)",
+            "id": 14
+          },
+          {
+            "expression": {
+              "items": []
+            },
+            "name": "Unnamed Concept Set",
+            "id": 15
+          },
+          {
+            "expression": {
+              "items": [
+                {
+                  "isExcluded": false,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 1319998,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "149",
+                    "VOCABULARY_ID": "RxNorm",
+                    "CONCEPT_NAME": "Acebutolol",
+                    "DOMAIN_ID": "Drug",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Ingredient",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": true
+                },
+                {
+                  "isExcluded": false,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 1314002,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "1202",
+                    "VOCABULARY_ID": "RxNorm",
+                    "CONCEPT_NAME": "Atenolol",
+                    "DOMAIN_ID": "Drug",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Ingredient",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": true
+                },
+                {
+                  "isExcluded": false,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 40019430.0,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "371065",
+                    "VOCABULARY_ID": "RxNorm",
+                    "CONCEPT_NAME": "Betaxolol Oral Tablet",
+                    "DOMAIN_ID": "Drug",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Clinical Drug Form",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": true
+                },
+                {
+                  "isExcluded": false,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 1338005,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "19484",
+                    "VOCABULARY_ID": "RxNorm",
+                    "CONCEPT_NAME": "Bisoprolol",
+                    "DOMAIN_ID": "Drug",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Ingredient",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": true
+                },
+                {
+                  "isExcluded": false,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 1346823,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "20352",
+                    "VOCABULARY_ID": "RxNorm",
+                    "CONCEPT_NAME": "carvedilol",
+                    "DOMAIN_ID": "Drug",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Ingredient",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": true
+                },
+                {
+                  "isExcluded": false,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 19063580.0,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "49737",
+                    "VOCABULARY_ID": "RxNorm",
+                    "CONCEPT_NAME": "esmolol",
+                    "DOMAIN_ID": "Drug",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Ingredient",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": true
+                },
+                {
+                  "isExcluded": false,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 1386957,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "6185",
+                    "VOCABULARY_ID": "RxNorm",
+                    "CONCEPT_NAME": "Labetalol",
+                    "DOMAIN_ID": "Drug",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Ingredient",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": true
+                },
+                {
+                  "isExcluded": false,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 1307046,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "6918",
+                    "VOCABULARY_ID": "RxNorm",
+                    "CONCEPT_NAME": "Metoprolol",
+                    "DOMAIN_ID": "Drug",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Ingredient",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": true
+                },
+                {
+                  "isExcluded": false,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 1313200,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "7226",
+                    "VOCABULARY_ID": "RxNorm",
+                    "CONCEPT_NAME": "Nadolol",
+                    "DOMAIN_ID": "Drug",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Ingredient",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": true
+                },
+                {
+                  "isExcluded": false,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 1314577,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "31555",
+                    "VOCABULARY_ID": "RxNorm",
+                    "CONCEPT_NAME": "nebivolol",
+                    "DOMAIN_ID": "Drug",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Ingredient",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": true
+                },
+                {
+                  "isExcluded": false,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 1327978,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "7973",
+                    "VOCABULARY_ID": "RxNorm",
+                    "CONCEPT_NAME": "Penbutolol",
+                    "DOMAIN_ID": "Drug",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Ingredient",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": true
+                },
+                {
+                  "isExcluded": false,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 1345858,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "8332",
+                    "VOCABULARY_ID": "RxNorm",
+                    "CONCEPT_NAME": "Pindolol",
+                    "DOMAIN_ID": "Drug",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Ingredient",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": true
+                },
+                {
+                  "isExcluded": false,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 1353766,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "8787",
+                    "VOCABULARY_ID": "RxNorm",
+                    "CONCEPT_NAME": "Propranolol",
+                    "DOMAIN_ID": "Drug",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Ingredient",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": true
+                },
+                {
+                  "isExcluded": false,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 1370109,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "9947",
+                    "VOCABULARY_ID": "RxNorm",
+                    "CONCEPT_NAME": "Sotalol",
+                    "DOMAIN_ID": "Drug",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Ingredient",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": true
+                },
+                {
+                  "isExcluded": false,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 40087920.0,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "374135",
+                    "VOCABULARY_ID": "RxNorm",
+                    "CONCEPT_NAME": "Timolol Oral Tablet",
+                    "DOMAIN_ID": "Drug",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Clinical Drug Form",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": true
+                }
+              ]
+            },
+            "name": "cardiovascular beta-blockers",
+            "id": 16
+          },
+          {
+            "expression": {
+              "items": [
+                {
+                  "isExcluded": true,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 1319998,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "149",
+                    "VOCABULARY_ID": "RxNorm",
+                    "CONCEPT_NAME": "Acebutolol",
+                    "DOMAIN_ID": "Drug",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Ingredient",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": true
+                },
+                {
+                  "isExcluded": true,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 1314002,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "1202",
+                    "VOCABULARY_ID": "RxNorm",
+                    "CONCEPT_NAME": "Atenolol",
+                    "DOMAIN_ID": "Drug",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Ingredient",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": true
+                },
+                {
+                  "isExcluded": true,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 40019430.0,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "371065",
+                    "VOCABULARY_ID": "RxNorm",
+                    "CONCEPT_NAME": "Betaxolol Oral Tablet",
+                    "DOMAIN_ID": "Drug",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Clinical Drug Form",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": true
+                },
+                {
+                  "isExcluded": true,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 1338005,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "19484",
+                    "VOCABULARY_ID": "RxNorm",
+                    "CONCEPT_NAME": "Bisoprolol",
+                    "DOMAIN_ID": "Drug",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Ingredient",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": true
+                },
+                {
+                  "isExcluded": false,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 1346823,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "20352",
+                    "VOCABULARY_ID": "RxNorm",
+                    "CONCEPT_NAME": "carvedilol",
+                    "DOMAIN_ID": "Drug",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Ingredient",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": true
+                },
+                {
+                  "isExcluded": true,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 19063580.0,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "49737",
+                    "VOCABULARY_ID": "RxNorm",
+                    "CONCEPT_NAME": "esmolol",
+                    "DOMAIN_ID": "Drug",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Ingredient",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": true
+                },
+                {
+                  "isExcluded": true,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 1386957,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "6185",
+                    "VOCABULARY_ID": "RxNorm",
+                    "CONCEPT_NAME": "Labetalol",
+                    "DOMAIN_ID": "Drug",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Ingredient",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": true
+                },
+                {
+                  "isExcluded": true,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 1307046,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "6918",
+                    "VOCABULARY_ID": "RxNorm",
+                    "CONCEPT_NAME": "Metoprolol",
+                    "DOMAIN_ID": "Drug",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Ingredient",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": true
+                },
+                {
+                  "isExcluded": true,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 1313200,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "7226",
+                    "VOCABULARY_ID": "RxNorm",
+                    "CONCEPT_NAME": "Nadolol",
+                    "DOMAIN_ID": "Drug",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Ingredient",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": true
+                },
+                {
+                  "isExcluded": true,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 1314577,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "31555",
+                    "VOCABULARY_ID": "RxNorm",
+                    "CONCEPT_NAME": "nebivolol",
+                    "DOMAIN_ID": "Drug",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Ingredient",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": true
+                },
+                {
+                  "isExcluded": true,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 1327978,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "7973",
+                    "VOCABULARY_ID": "RxNorm",
+                    "CONCEPT_NAME": "Penbutolol",
+                    "DOMAIN_ID": "Drug",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Ingredient",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": true
+                },
+                {
+                  "isExcluded": true,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 1345858,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "8332",
+                    "VOCABULARY_ID": "RxNorm",
+                    "CONCEPT_NAME": "Pindolol",
+                    "DOMAIN_ID": "Drug",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Ingredient",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": true
+                },
+                {
+                  "isExcluded": false,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 1353766,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "8787",
+                    "VOCABULARY_ID": "RxNorm",
+                    "CONCEPT_NAME": "Propranolol",
+                    "DOMAIN_ID": "Drug",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Ingredient",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": true
+                },
+                {
+                  "isExcluded": true,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 1370109,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "9947",
+                    "VOCABULARY_ID": "RxNorm",
+                    "CONCEPT_NAME": "Sotalol",
+                    "DOMAIN_ID": "Drug",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Ingredient",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": true
+                },
+                {
+                  "isExcluded": true,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 40087920.0,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "374135",
+                    "VOCABULARY_ID": "RxNorm",
+                    "CONCEPT_NAME": "Timolol Oral Tablet",
+                    "DOMAIN_ID": "Drug",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Clinical Drug Form",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": true
+                }
+              ]
+            },
+            "name": "high lipophilic beta blocker",
+            "id": 17
+          },
+          {
+            "expression": {
+              "items": [
+                {
+                  "isExcluded": true,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 1319998,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "149",
+                    "VOCABULARY_ID": "RxNorm",
+                    "CONCEPT_NAME": "Acebutolol",
+                    "DOMAIN_ID": "Drug",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Ingredient",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": true
+                },
+                {
+                  "isExcluded": true,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 1314002,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "1202",
+                    "VOCABULARY_ID": "RxNorm",
+                    "CONCEPT_NAME": "Atenolol",
+                    "DOMAIN_ID": "Drug",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Ingredient",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": true
+                },
+                {
+                  "isExcluded": true,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 40019430.0,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "371065",
+                    "VOCABULARY_ID": "RxNorm",
+                    "CONCEPT_NAME": "Betaxolol Oral Tablet",
+                    "DOMAIN_ID": "Drug",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Clinical Drug Form",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": true
+                },
+                {
+                  "isExcluded": true,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 1338005,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "19484",
+                    "VOCABULARY_ID": "RxNorm",
+                    "CONCEPT_NAME": "Bisoprolol",
+                    "DOMAIN_ID": "Drug",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Ingredient",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": true
+                },
+                {
+                  "isExcluded": false,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 1346823,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "20352",
+                    "VOCABULARY_ID": "RxNorm",
+                    "CONCEPT_NAME": "carvedilol",
+                    "DOMAIN_ID": "Drug",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Ingredient",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": true
+                },
+                {
+                  "isExcluded": true,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 19063580.0,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "49737",
+                    "VOCABULARY_ID": "RxNorm",
+                    "CONCEPT_NAME": "esmolol",
+                    "DOMAIN_ID": "Drug",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Ingredient",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": true
+                },
+                {
+                  "isExcluded": false,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 1386957,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "6185",
+                    "VOCABULARY_ID": "RxNorm",
+                    "CONCEPT_NAME": "Labetalol",
+                    "DOMAIN_ID": "Drug",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Ingredient",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": true
+                },
+                {
+                  "isExcluded": false,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 1307046,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "6918",
+                    "VOCABULARY_ID": "RxNorm",
+                    "CONCEPT_NAME": "Metoprolol",
+                    "DOMAIN_ID": "Drug",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Ingredient",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": true
+                },
+                {
+                  "isExcluded": true,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 1313200,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "7226",
+                    "VOCABULARY_ID": "RxNorm",
+                    "CONCEPT_NAME": "Nadolol",
+                    "DOMAIN_ID": "Drug",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Ingredient",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": true
+                },
+                {
+                  "isExcluded": true,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 1314577,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "31555",
+                    "VOCABULARY_ID": "RxNorm",
+                    "CONCEPT_NAME": "nebivolol",
+                    "DOMAIN_ID": "Drug",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Ingredient",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": true
+                },
+                {
+                  "isExcluded": true,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 1327978,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "7973",
+                    "VOCABULARY_ID": "RxNorm",
+                    "CONCEPT_NAME": "Penbutolol",
+                    "DOMAIN_ID": "Drug",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Ingredient",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": true
+                },
+                {
+                  "isExcluded": false,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 1345858,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "8332",
+                    "VOCABULARY_ID": "RxNorm",
+                    "CONCEPT_NAME": "Pindolol",
+                    "DOMAIN_ID": "Drug",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Ingredient",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": true
+                },
+                {
+                  "isExcluded": false,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 1353766,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "8787",
+                    "VOCABULARY_ID": "RxNorm",
+                    "CONCEPT_NAME": "Propranolol",
+                    "DOMAIN_ID": "Drug",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Ingredient",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": true
+                },
+                {
+                  "isExcluded": true,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 1370109,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "9947",
+                    "VOCABULARY_ID": "RxNorm",
+                    "CONCEPT_NAME": "Sotalol",
+                    "DOMAIN_ID": "Drug",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Ingredient",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": true
+                },
+                {
+                  "isExcluded": false,
+                  "concept": {
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_ID": 40087920.0,
+                    "STANDARD_CONCEPT": "S",
+                    "CONCEPT_CODE": "374135",
+                    "VOCABULARY_ID": "RxNorm",
+                    "CONCEPT_NAME": "Timolol Oral Tablet",
+                    "DOMAIN_ID": "Drug",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "CONCEPT_CLASS_ID": "Clinical Drug Form",
+                    "INVALID_REASON": "V"
+                  },
+                  "includeMapped": false,
+                  "includeDescendants": true
+                }
+              ]
+            },
+            "name": "moderate to high lipophilic beta blocker",
+            "id": 18
+          }
+        ],
+        "EndStrategy": {
+          "CustomEra": {
+            "DrugCodesetId": 16,
+            "GapDays": 30,
+            "Offset": 0
+          }
+        },
+        "cdmVersionRange": ">=5.0.0",
+        "CensoringCriteria": [],
+        "Title": null,
+        "AdditionalCriteria": null,
+        "QualifiedLimit": {
+          "Type": "First"
+        },
+        "InclusionRules": [
+          {
+            "expression": {
+              "CriteriaList": [
+                {
+                  "RestrictVisit": false,
+                  "StartWindow": {
+                    "UseEventEnd": false,
+                    "Start": {
+                      "Days": 3,
+                      "Coeff": -1
+                    },
+                    "End": {
+                      "Days": 3,
+                      "Coeff": 1
+                    },
+                    "UseIndexEnd": false
+                  },
+                  "IgnoreObservationPeriod": false,
+                  "EndWindow": null,
+                  "Criteria": {
+                    "ConditionOccurrence": {
+                      "OccurrenceEndDate": null,
+                      "CorrelatedCriteria": null,
+                      "ConditionTypeExclude": false,
+                      "CodesetId": 6,
+                      "ProviderSpecialty": null,
+                      "Gender": null,
+                      "VisitType": null,
+                      "First": null,
+                      "OccurrenceStartDate": null,
+                      "ConditionType": null,
+                      "ConditionSourceConcept": null,
+                      "StopReason": null,
+                      "Age": null
+                    }
+                  },
+                  "Occurrence": {
+                    "Type": 2,
+                    "IsDistinct": false,
+                    "Count": 1
+                  }
+                }
+              ],
+              "Type": "ALL",
+              "DemographicCriteriaList": [],
+              "Groups": [],
+              "Count": null
+            },
+            "name": "cardiovascular indication",
+            "description": null
+          },
+          {
+            "expression": {
+              "CriteriaList": [
+                {
+                  "RestrictVisit": false,
+                  "StartWindow": {
+                    "UseEventEnd": false,
+                    "Start": {
+                      "Days": null,
+                      "Coeff": -1
+                    },
+                    "End": {
+                      "Days": 0,
+                      "Coeff": 1
+                    },
+                    "UseIndexEnd": false
+                  },
+                  "IgnoreObservationPeriod": false,
+                  "EndWindow": null,
+                  "Criteria": {
+                    "ConditionOccurrence": {
+                      "OccurrenceEndDate": null,
+                      "CorrelatedCriteria": null,
+                      "ConditionTypeExclude": false,
+                      "CodesetId": 7,
+                      "ProviderSpecialty": null,
+                      "Gender": null,
+                      "VisitType": null,
+                      "First": null,
+                      "OccurrenceStartDate": null,
+                      "ConditionType": null,
+                      "ConditionSourceConcept": null,
+                      "StopReason": null,
+                      "Age": null
+                    }
+                  },
+                  "Occurrence": {
+                    "Type": 0,
+                    "IsDistinct": false,
+                    "Count": 0
+                  }
+                },
+                {
+                  "RestrictVisit": false,
+                  "StartWindow": {
+                    "UseEventEnd": false,
+                    "Start": {
+                      "Days": null,
+                      "Coeff": -1
+                    },
+                    "End": {
+                      "Days": 0,
+                      "Coeff": 1
+                    },
+                    "UseIndexEnd": false
+                  },
+                  "IgnoreObservationPeriod": false,
+                  "EndWindow": null,
+                  "Criteria": {
+                    "ConditionOccurrence": {
+                      "OccurrenceEndDate": null,
+                      "CorrelatedCriteria": null,
+                      "ConditionTypeExclude": false,
+                      "CodesetId": 9,
+                      "ProviderSpecialty": null,
+                      "Gender": null,
+                      "VisitType": null,
+                      "First": null,
+                      "OccurrenceStartDate": null,
+                      "ConditionType": null,
+                      "ConditionSourceConcept": null,
+                      "StopReason": null,
+                      "Age": null
+                    }
+                  },
+                  "Occurrence": {
+                    "Type": 0,
+                    "IsDistinct": false,
+                    "Count": 0
+                  }
+                }
+              ],
+              "Type": "ALL",
+              "DemographicCriteriaList": [],
+              "Groups": [],
+              "Count": null
+            },
+            "name": "no PHx. of selected mental disorders",
+            "description": null
+          },
+          {
+            "expression": {
+              "CriteriaList": [
+                {
+                  "RestrictVisit": false,
+                  "StartWindow": {
+                    "UseEventEnd": false,
+                    "Start": {
+                      "Days": null,
+                      "Coeff": -1
+                    },
+                    "End": {
+                      "Days": 0,
+                      "Coeff": 1
+                    },
+                    "UseIndexEnd": false
+                  },
+                  "IgnoreObservationPeriod": false,
+                  "EndWindow": null,
+                  "Criteria": {
+                    "DrugExposure": {
+                      "OccurrenceEndDate": null,
+                      "CorrelatedCriteria": null,
+                      "DrugSourceConcept": null,
+                      "CodesetId": 11,
+                      "DrugTypeExclude": false,
+                      "Quantity": null,
+                      "DrugType": null,
+                      "ProviderSpecialty": null,
+                      "EffectiveDrugDose": null,
+                      "Gender": null,
+                      "DaysSupply": null,
+                      "DoseUnit": null,
+                      "VisitType": null,
+                      "Refills": null,
+                      "First": null,
+                      "OccurrenceStartDate": null,
+                      "RouteConcept": null,
+                      "StopReason": null,
+                      "LotNumber": null,
+                      "Age": null
+                    }
+                  },
+                  "Occurrence": {
+                    "Type": 0,
+                    "IsDistinct": false,
+                    "Count": 0
+                  }
+                }
+              ],
+              "Type": "ALL",
+              "DemographicCriteriaList": [],
+              "Groups": [],
+              "Count": null
+            },
+            "name": "no PHx. of ANTIDEPRESSANTS",
+            "description": null
+          }
+        ],
+        "PrimaryCriteria": {
+          "CriteriaList": [
+            {
+              "DrugEra": {
+                "EraStartDate": null,
+                "CorrelatedCriteria": null,
+                "OccurrenceCount": null,
+                "AgeAtStart": {
+                  "Op": "gte",
+                  "Extent": null,
+                  "Value": 18
+                },
+                "GapDays": null,
+                "CodesetId": 16,
+                "AgeAtEnd": null,
+                "First": null,
+                "Gender": null,
+                "EraLength": {
+                  "Op": "gte",
+                  "Extent": null,
+                  "Value": 30
+                },
+                "EraEndDate": null
+              }
+            }
+          ],
+          "PrimaryCriteriaLimit": {
+            "Type": "First"
+          },
+          "ObservationWindow": {
+            "PostDays": 0,
+            "PriorDays": 365
+          }
+        }
+      },
+      "createdDate": "2020-09-21T12:19:49.873+0000",
+      "createdBy": "jshsh7553",
+      "name": "All Cardiovascular Beta-blockers",
+      "modifiedDate": "2020-10-07T04:37:56.790+0000",
+      "description": null,
+      "expressionType": "SIMPLE_EXPRESSION",
+      "modifiedBy": "jshsh7553",
+      "id": 1268
+    }
+  ],
+  "modelSettings": [
+    {
+      "RandomForestSettings": {
+        "seed": 2027
+      }
+    }
+  ],
+  "name": "MddAfterBbValidation",
+  "modifiedDate": null,
+  "covariateSettings": [
+    {
+      "temporal": false,
+      "addDescendantsToInclude": false,
+      "addDescendantsToExclude": false,
+      "DrugExposureShortTerm": true,
+      "DrugExposureMediumTerm": false,
+      "DrugExposureLongTerm": false,
+      "DrugExposureAnyTimePrior": false,
+      "ConditionOccurrenceShortTerm": true,
+      "ConditionOccurrenceMediumTerm": false,
+      "ConditionOccurrenceLongTerm": false,
+      "ConditionOccurrenceAnyTimePrior": false,
+      "ProcedureOccurrenceShortTerm": true,
+      "ProcedureOccurrenceMediumTerm": false,
+      "ProcedureOccurrenceLongTerm": false,
+      "ProcedureOccurrenceAnyTimePrior": false,
+      "shortTermStartDays": -30,
+      "mediumTermStartDays": -180,
+      "longTermStartDays": -365,
+      "endDays": 0,
+      "attr_fun": "getDbDefaultCovariateData",
+      "attr_class": "covariateSettings",
+      "includedCovariateIds": [],
+      "includedCovariateConceptIds": [],
+      "excludedCovariateConceptIds": []
+    },
+    {
+      "temporal": false,
+      "addDescendantsToInclude": false,
+      "addDescendantsToExclude": false,
+      "DrugExposureShortTerm": false,
+      "DrugExposureMediumTerm": true,
+      "DrugExposureLongTerm": false,
+      "DrugExposureAnyTimePrior": false,
+      "ConditionOccurrenceShortTerm": false,
+      "ConditionOccurrenceMediumTerm": true,
+      "ConditionOccurrenceLongTerm": false,
+      "ConditionOccurrenceAnyTimePrior": false,
+      "ProcedureOccurrenceShortTerm": false,
+      "ProcedureOccurrenceMediumTerm": true,
+      "ProcedureOccurrenceLongTerm": false,
+      "ProcedureOccurrenceAnyTimePrior": false,
+      "shortTermStartDays": -30,
+      "mediumTermStartDays": -180,
+      "longTermStartDays": -365,
+      "endDays": 0,
+      "attr_fun": "getDbDefaultCovariateData",
+      "attr_class": "covariateSettings",
+      "includedCovariateIds": [],
+      "includedCovariateConceptIds": [],
+      "excludedCovariateConceptIds": []
+    },
+    {
+      "temporal": false,
+      "addDescendantsToInclude": false,
+      "addDescendantsToExclude": false,
+      "DrugExposureShortTerm": false,
+      "DrugExposureMediumTerm": false,
+      "DrugExposureLongTerm": true,
+      "DrugExposureAnyTimePrior": false,
+      "ConditionOccurrenceShortTerm": false,
+      "ConditionOccurrenceMediumTerm": false,
+      "ConditionOccurrenceLongTerm": true,
+      "ConditionOccurrenceAnyTimePrior": false,
+      "ProcedureOccurrenceShortTerm": false,
+      "ProcedureOccurrenceMediumTerm": false,
+      "ProcedureOccurrenceLongTerm": true,
+      "ProcedureOccurrenceAnyTimePrior": false,
+      "shortTermStartDays": -30,
+      "mediumTermStartDays": -180,
+      "longTermStartDays": -365,
+      "endDays": 0,
+      "attr_fun": "getDbDefaultCovariateData",
+      "attr_class": "covariateSettings",
+      "includedCovariateIds": [],
+      "includedCovariateConceptIds": [],
+      "excludedCovariateConceptIds": []
+    },
+    {
+      "temporal": false,
+      "addDescendantsToInclude": false,
+      "addDescendantsToExclude": false,
+      "DrugExposureShortTerm": false,
+      "DrugExposureMediumTerm": false,
+      "DrugExposureLongTerm": false,
+      "DrugExposureAnyTimePrior": true,
+      "ConditionOccurrenceShortTerm": false,
+      "ConditionOccurrenceMediumTerm": false,
+      "ConditionOccurrenceLongTerm": false,
+      "ConditionOccurrenceAnyTimePrior": true,
+      "ProcedureOccurrenceShortTerm": false,
+      "ProcedureOccurrenceMediumTerm": false,
+      "ProcedureOccurrenceLongTerm": false,
+      "ProcedureOccurrenceAnyTimePrior": true,
+      "shortTermStartDays": -30,
+      "mediumTermStartDays": -180,
+      "longTermStartDays": -365,
+      "endDays": 0,
+      "attr_fun": "getDbDefaultCovariateData",
+      "attr_class": "covariateSettings",
+      "includedCovariateIds": [],
+      "includedCovariateConceptIds": [],
+      "excludedCovariateConceptIds": []
+    },
+    {
+      "temporal": false,
+      "addDescendantsToInclude": false,
+      "addDescendantsToExclude": false,
+      "DrugExposureShortTerm": true,
+      "DrugExposureMediumTerm": true,
+      "DrugExposureLongTerm": true,
+      "DrugExposureAnyTimePrior": true,
+      "ConditionOccurrenceShortTerm": true,
+      "ConditionOccurrenceMediumTerm": true,
+      "ConditionOccurrenceLongTerm": true,
+      "ConditionOccurrenceAnyTimePrior": true,
+      "ProcedureOccurrenceShortTerm": true,
+      "ProcedureOccurrenceMediumTerm": true,
+      "ProcedureOccurrenceLongTerm": true,
+      "ProcedureOccurrenceAnyTimePrior": true,
+      "shortTermStartDays": -30,
+      "mediumTermStartDays": -180,
+      "longTermStartDays": -365,
+      "endDays": 0,
+      "attr_fun": "getDbDefaultCovariateData",
+      "attr_class": "covariateSettings",
+      "includedCovariateIds": [],
+      "includedCovariateConceptIds": [],
+      "excludedCovariateConceptIds": []
+    }
+  ],
+  "modifiedBy": null,
+  "conceptSets": [],
+  "id": 63,
+  "packageName": "MddAfterBbValidation"
+}

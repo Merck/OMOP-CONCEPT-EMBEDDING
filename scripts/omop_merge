@@ -1,0 +1,41 @@
+#!/usr/bin/env python3
+import os
+import multiprocessing
+from glob import glob
+import omop_core
+from omop_embed import etl, conf
+
+def merge_partition (args):
+    etl.merge_partition(*args)
+
+if __name__ == '__main__':
+    import argparse
+    parser = argparse.ArgumentParser()
+    parser.add_argument("-p", "--parallel", help="load with multiple processes", type=int, default=4)
+    args = parser.parse_args()
+    os.makedirs(f'{conf.DATA_DIR}/partitions', exist_ok=True)
+    paths = glob(f'{conf.DATA_DIR}/ehash/part-*')
+    out_paths = []
+    for path in paths:
+        bname = os.path.basename(path)
+        out_paths.append(f'{conf.DATA_DIR}/partitions/{bname}')
+    pool = multiprocessing.Pool(args.parallel)
+    for _ in pool.imap_unordered(merge_partition, zip(paths, out_paths)):
+        pass
+    omop_core.build_dict(out_paths, f'{conf.DATA_DIR}/dict')
+
+'''
+Copyright © 2022 Merck & Co., Inc., Rahway, NJ, USA and its affiliates. All rights reserved.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+'''

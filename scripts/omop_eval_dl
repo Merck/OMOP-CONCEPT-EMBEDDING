@@ -1,0 +1,149 @@
+#!/usr/bin/env python3
+import time
+import os
+import tempfile
+import numpy as np
+import pandas as pd
+import omop_core
+from omop_embed import dl, plp
+
+def get_temp_path ():
+    temp_dir = tempfile._get_default_tempdir()
+    for temp_name in tempfile._get_candidate_names():
+        temp_path = os.path.join(temp_dir, temp_name)
+        if not os.path.exists(temp_path):
+            return temp_path
+    assert False
+
+def run (labelPath, featurePath, args):
+    pop = pd.read_csv(labelPath)
+    plp.patch_pop(pop)
+
+    whitelist_path = os.path.join(args.output, 'white')
+
+    common = {
+            'paths': [featurePath],
+            'local': True,
+            'loop': False,
+            'min_tokens': 0,
+            'batch_size': args.batch,
+            'seq_len': args.seq_len,
+            'vocab': args.dict,
+            'vocab_size': args.vocab_size,
+            'meta': pop,
+        }
+
+    train_conf = {
+            'split': 1,
+            'shuffle': True,
+            'inference': False,
+            'drop_rate': args.drop_rate,
+            'save_whitelist': whitelist_path
+            }
+    if not args.os_class is None:
+        train_conf['oversample_class'] = args.os_class
+        train_conf['oversample_factor'] = args.os_factor
+    train_conf.update(common)
+
+    train_stream = omop_core.BasicSmallStreamer(train_conf)
+    del train_stream
+    del train_conf['save_whitelist']
+    train_conf.update({
+            'whitelist': whitelist_path,
+            'whitelist_threshold': args.whitelist_threshold
+            })
+
+    val_conf = {
+            'split': 2,
+            'shuffle': False,
+            'inference': True,
+            'whitelist': whitelist_path,
+            'whitelist_threshold': args.whitelist_threshold
+            }
+    val_conf.update(common)
+
+    train_stream = omop_core.BasicSmallStreamer(train_conf)
+    val_stream = omop_core.BasicSmallStreamer(val_conf)
+
+    auc = dl.train(train_stream, val_stream, args)
+    return auc
+
+if __name__ == '__main__':
+    import argparse
+    parser = argparse.ArgumentParser()
+    parser.add_argument("-l", "--labels", type=str, default=None, required=False, help="labels file")
+    parser.add_argument("-d", "--data", type=str, default=None, required=False, help="data file")
+    parser.add_argument("-t", "--task", type=str, default=None, required=True, help="task")
+    parser.add_argument("-T", "--tag", type=str, default=None, help="")
+    parser.add_argument("-o", "--output", type=str, default=None, help="")
+    parser.add_argument("-v", "--vocab_size", type=int, default=10000, help="expr")
+    parser.add_argument("--seq_len", type=int, default=768, help="")
+    parser.add_argument("--pre", type=str, default=None, help="")
+    parser.add_argument("--dim", type=int, default=512, help="")
+    parser.add_argument("--heads", type=int, default=8, help="")
+    parser.add_argument("--hidden", type=int, default=None, help="")
+    parser.add_argument("--batch", type=int, default=64, help="")
+    parser.add_argument("--dict", type=str, default='data/dict', help="")
+    parser.add_argument("--net", type=str, default='basic', help="")
+    parser.add_argument("--gpu", dest='gpu', action='store_true', help='')
+    parser.add_argument("--one", dest='one', action='store_true', help='')
+    parser.add_argument("--learning_rate", type=float, default=0.001, help="")
+    parser.add_argument("--tune", type=float, default=None, help="")
+    parser.add_argument("--freeze", type=int, default=0, help="")
+    parser.add_argument("--weight_decay", type=float, default=0.001, help="")
+    parser.add_argument("--drop_rate", type=float, default=0.0, help="")
+    parser.add_argument("--epochs", type=int, default=100, help="")
+    parser.add_argument("--save", type=int, default=None, help="")
+    parser.add_argument("--os_class", type=int, default=None, help='')
+    parser.add_argument("--os_factor", type=int, default=None, help='')
+    parser.add_argument("--whitelist_threshold", type=int, default=1, help="")
+    parser.add_argument("--snapshot", dest='snapshot', action='store_true', help='')
+
+    args = parser.parse_args()
+
+
+    if not args.task is None:
+        with open('settings.txt', 'r') as f:
+            for l in f:
+                t, l, d = l.strip().split('\t')
+                if t == args.task:
+                    if args.labels is None:
+                        args.labels = l
+                    if args.data is None:
+                        args.data = d
+                    break
+        if args.output is None:
+            args.output = f'results/{args.tag}/{args.task}'
+
+    assert not args.labels is None, "Specify -l/--labels or -t/--task"
+    assert not args.data is None, "Specify -d/--data or -t/--task"
+
+    print("labels:", args.labels)
+    print("data:", args.data)
+    print("output:", args.output)
+
+    os.makedirs(args.output, exist_ok=True)
+    auc = run(args.labels, args.data, args) #, args.dimensions)
+
+    print(auc)
+
+    if not auc is None and not args.output is None:
+        auc_df = pd.DataFrame({'metric': ['auc'], 'value': [auc]})
+        auc_df.to_csv(args.output + '.csv', index=False)
+
+
+'''
+Copyright © 2022 Merck & Co., Inc., Rahway, NJ, USA and its affiliates. All rights reserved.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+'''

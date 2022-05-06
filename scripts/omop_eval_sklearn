@@ -1,0 +1,190 @@
+#!/usr/bin/env python3
+import os
+import sys
+import pickle
+from glob import glob
+import numpy as np
+import pandas as pd
+from datetime import datetime
+from sklearn.metrics import roc_auc_score
+from sklearn.feature_selection import SelectFromModel
+import omop_core
+from omop_embed import plp
+
+SPECIAL = 5
+
+def load_stream (conf0, split, ref):
+    conf = {'split': split}
+    conf.update(conf0)
+    stream = omop_core.BasicMemoryStreamer(conf)
+    pids = []
+    labels = []
+    features = []
+    while True:
+        try:
+            batch = stream.__next__()
+            pids.append(batch['patients'])
+            labels.append(batch['labels'])
+            features.append(batch['tokens'])
+        except StopIteration:
+            break
+    pids = np.concatenate(pids, axis=0)
+    labels = np.concatenate(labels, axis=0)
+    features = np.concatenate(features, axis=0)
+
+    # one hot encoding
+    n, l = features.shape
+    xxx = np.zeros((n, args.vocab_size), dtype=np.float64)
+    for i in range(n):
+        for c in features[i]:
+            c -= SPECIAL
+            assert c < args.vocab_size
+            if c >= 0:
+                xxx[i, c] = 1
+    features = xxx
+
+    if not ref is None:
+        index = []
+        lookup = list(pids)
+        for _, row in ref.iterrows():
+            index.append(lookup.index(row['subjectId']))
+        pids = pids[index]
+        labels = labels[index]
+        features = features[index]
+        assert (labels == ref['outcomeCount']).all()
+
+    return pids, labels, features
+
+def run (labels, data, model, args):
+    pop = pd.read_csv(labels)
+    plp.patch_pop(pop)
+
+    conf = {
+            'paths': [data],
+            'local': True,
+            'shuffle': False,
+            'loop': False,
+            'inference': True,
+            'min_tokens': 0,
+            'batch_size': 64,
+            'seq_len': args.seq_len,
+            'vocab': args.dict,
+            'vocab_size': args.vocab_size + SPECIAL,
+            'meta': pop,
+        }
+
+    trainRef = None
+    testRef = None
+    if False:
+        trainRef = pop[pop['indexes'] > 0]
+        testRef = pop[pop['indexes'] < 0]
+
+    trainId, Y_train, X_train = load_stream(conf, 1, trainRef)
+    testId, Y_test, X_test = load_stream(conf, 2, testRef)
+
+    print(X_train.shape, X_test.shape)
+    print(Y_train.shape, Y_test.shape)
+    if args.feature_selection:
+        model.fit(X_train, Y_train)
+        sel = SelectFromModel(model, prefit=True)
+        X_train = sel.transform(X_train)
+        X_test = sel.transform(X_test)
+        print("dimension reduction")
+        print(X_train.shape, X_test.shape)
+        print(Y_train.shape, Y_test.shape)
+
+    model.fit(X_train, Y_train)
+
+    prob = model.predict_proba(X_test)[:, 1]
+    auc = roc_auc_score(Y_test, prob)
+    print(auc)
+    return auc
+
+def create_rf ():
+    from sklearn.ensemble import RandomForestClassifier
+    return RandomForestClassifier(n_estimators=2000,max_depth=17,min_samples_split=2,random_state=0, n_jobs=-1, bootstrap=False)
+
+def create_lgbm ():
+    import lightgbm
+    params = {
+        'boosting_type': 'gbdt',
+        'objective': 'binary',
+        'num_leaves': 150,
+        'learning_rate': 0.05,
+        'verbose': 0,
+        'n_estimators': 400,
+        'reg_alpha': 2.0,
+    }
+
+    return lightgbm.LGBMClassifier(**params)
+
+
+MODELS = {
+        'rf': create_rf,
+        'lgbm': create_lgbm
+}
+
+if __name__ == '__main__':
+    import argparse
+    parser = argparse.ArgumentParser()
+    parser.add_argument("-l", "--labels", type=str, default=None, required=False, help="labels file")
+    parser.add_argument("-d", "--data", type=str, default=None, required=False, help="data file")
+    parser.add_argument("-v", "--vocab_size", type=int, default=10000, help="vocab size")
+    parser.add_argument("-s", "--feature_selection", dest='feature_selection', action='store_true', help='')
+    parser.add_argument("--seq_len", type=int, default=768, help="")
+    parser.add_argument("--dict", type=str, default='data/dict', help="")
+    parser.add_argument("--model", type=str, default='rf', help=str(MODELS.keys()))
+    parser.add_argument("-o", "--output", type=str, default=None, help="")
+    parser.add_argument("-T", "--tag", type=str, default=None, help="")
+    parser.add_argument("-t", "--task", type=str, default=None, help="")
+
+    args = parser.parse_args()
+
+    if not args.task is None:
+        with open('settings.txt', 'r') as f:
+            for l in f:
+                t, l, d = l.strip().split('\t')
+                if t == args.task:
+                    if args.labels is None:
+                        args.labels = l
+                    if args.data is None:
+                        args.data = d
+                    break
+        if args.output is None:
+            args.output = f'results/{args.tag}/{args.task}'
+
+    assert not args.labels is None, "Specify -l/--labels or -t/--task"
+    assert not args.data is None, "Specify -d/--data or -t/--task"
+
+    print("labels:", args.labels)
+    print("data:", args.data)
+    print("output:", args.output)
+
+    model = MODELS[args.model]()
+
+    auc = run(args.labels, args.data, model, args) #, args.dimensions)
+
+    print(auc)
+
+    if not auc is None and not args.output is None:
+        os.makedirs(os.path.dirname(args.output), exist_ok=True)
+        auc_df = pd.DataFrame({'metric': ['auc'], 'value': [auc]})
+        auc_df.to_csv(args.output + '.csv', index=False)
+
+
+
+'''
+Copyright © 2022 Merck & Co., Inc., Rahway, NJ, USA and its affiliates. All rights reserved.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+'''
